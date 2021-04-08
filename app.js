@@ -10,10 +10,11 @@
  
 const express = require('express');
 const app = express();
-
+var path = require('path');
+var publicPath = path.resolve(__dirname, 'public');
 const port = process.env.PORT || 3000;
 
-app.use(express.static(publicPath))
+app.use(express.static(publicPath));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/js/js.js');
