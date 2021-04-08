@@ -15,6 +15,10 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/public"))
 
+app.get('/', function (req,res){
+    res.sendFile(__dirname + "/public/js/js.js")
+})
+
 app.use((req, res, next) =>{
     res.status(404).sendFile(__dirname + "/public/404.html")
 })
