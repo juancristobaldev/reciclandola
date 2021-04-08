@@ -1,0 +1,241 @@
+@media (min-width:300px) and (max-width:800px){
+    .tittle h3{
+        .letrachica
+    }
+    header{
+        background-size: cover;
+        background-position-x: -320px;
+    
+    
+        .header-nav{
+            justify-content: space-around;
+            align-items: center;
+            width: 100vw;
+            padding: 0%;
+            a{
+                font-size: 10px;
+            }
+        }
+        .header-lobby{
+            width: auto;
+        }
+    }
+    .conocenos{
+        justify-content: center;
+        grid-template: 50px 50px 100px 150px 50px 50px  e("/")  50px 250px 50px ;
+        .img-front-vasos{
+            display: none;
+        }
+        .img-back-vasos{
+            grid-column: 1 e("/") 4;
+            grid-row: 2 e("/") 5;
+        }
+        .box-conocenos{
+            grid-column: 2 e("/") 3;
+            grid-row: 4 e("/") 6;
+            display: grid;
+            grid-template: 25% 50% 25% e("/") 32.5% 32.5% 35% ;
+            .box-tittle h1{
+                .letrasemichica;}
+        
+            .box-text{
+                font-size: 12.5px;
+                padding: 10px 20px;
+                text-align: left;
+            }
+            .box-button{   
+                width: 100%;
+                a{
+                    .letrachica;
+                    padding: 7.5px;
+                }
+            }
+        }
+    }
+    .galeria{
+        .layout-galeria{
+            grid-template: 250px 200px e("/") 250px 200px;
+            .layout-img4,.layout-img5{
+                display: none;
+            }
+            .layout-img1{
+                grid-row: 1 e("/") 3;
+                background-position-x: -50px;
+                background-position-y: 0px;
+            }
+            .layout-img2{
+                grid-column: 2 e("/") 3;
+                grid-row: 1 e("/") 2;
+                background-position-y: -20px;
+            }
+            .layout-img3{
+                grid-column: 2 e("/") 3;
+                grid-row: 2 e("/") 3;  
+            }
+            #anim{
+                position: relative;
+                transition: 1s;
+            }
+            .animresponsiveleft{
+                transform: translateX(-50vw);
+            }
+            .animresponsiveright{
+                transform: translateX(50vw);
+            }
+               
+        }
+    }
+    .contacto{
+        grid-template: 100vh 50vh e("/") 100% ;
+        .contacto-form{
+            grid-row: 1 e("/") 2;
+            form{
+                grid-template:10vh 10vh 20vh 15vh 5vh e("/") 100% ;
+                .nombre,.email,.mensaje,.enviar{
+                    grid-column: 1 e("/")2 ;}
+                .nombre input,.mensaje input,.email input{
+                    width: 75%;
+                }
+                .enviar input{
+                width: 50%;
+                }
+            }
+        }
+        .contacto-mapa{
+            grid-row: 2 e("/") 3;
+            grid-column: 1 e("/") 2;
+        }
+
+    }
+}
+
+@media (min-width:300px) and (max-width:400px){
+    .conocenos{
+        grid-template: 50px 50px 75px 125px 50px 50px e("/") 25px 200px 25px;
+        .box-conocenos{
+            grid-template: 25% 50% 25% e("/") 32.5% 27.5% 40%;
+            .box-tittle h1{
+                .letrachica;
+            }
+            .box-text p,.box-button a{
+                .letramuychica;
+            }
+             
+        }
+    }
+    .visualrest-info p{
+        .letramuychica;
+    }
+    .galeria{
+        .layout-galeria{
+            grid-template: 125px 175px e("/") 125px 125px;
+
+            .layout-img3{ background-position-y: 0px;}
+        }
+    }
+    .contacto{
+        grid-template-rows: 90vh 50vh;
+        .contacto-form{
+            grid-template-rows: 15vh 15vh 60vh ;
+            .section-contacto h3{
+                .letrachica;
+            }
+        }
+    }
+}
+@media (min-width:400px) and (max-width:500px){
+    .conocenos{
+        .box-conocenos{
+            .box-text p,.box-button a{
+                .letramuychica;
+            }
+        }   
+    }
+    .galeria{
+        .layout-galeria{
+            grid-template: repeat(2,175px) e("/") repeat(2,175px);
+
+            .layout-img3{ background-position-y: 0px;}
+        }
+    }
+    .visualrest-info p{
+        .letrachica;
+    }
+    .contacto{
+        .contacto-form{
+            grid-template-rows: 15vh 15vh 60vh ;
+            .section-contacto h3{
+                .letrachica;
+            }
+        }
+    }
+}
+@media (min-width:500px) and (max-width:600px){
+    .tittle h3{
+        .letrasemichica;
+    }
+    .conocenos{
+        grid-template: 50px 75px 115px 150px 75px 50px e("/") 65px 300px 65px;
+    }
+    .contacto{
+        grid-template-rows: 85vh 60vh;
+        .contacto-form{
+            grid-template-rows: 15vh 15vh 60vh;
+            .section-contacto h3{
+                .letrasemichica;
+            }
+        }
+    }
+}
+@media (min-width:600px) and (max-width:700px){
+    .tittle h3{
+        .letrasemichica;
+    }
+    .conocenos{
+        grid-template: 50px 75px 115px 150px 75px 50px e("/") 75px 330px 75px;
+        .box-conocenos{
+            .box-text p{
+                .letrachica;
+            }
+        }
+    }
+    .galeria .layout-galeria{
+        grid-template: repeat(2,250px) e("/") repeat(2,250px);
+    }
+    .contacto{
+        grid-template-rows: 90vh 90vh;
+        .contacto-form{
+            grid-template-rows: 15vh 15vh 60vh;
+            .section-contacto h3{
+                .letrasemichica;
+            }
+
+        }   
+   } 
+}
+@media (min-width:700px) and (max-width:800px){
+    .tittle h3{
+        .letrasemichica;
+    }
+    .conocenos{
+        grid-template: 50px 90px 130px 175px 90px 50px e("/") 90px 360px 90px;
+        .box-conocenos .box-tittle h1{
+            .letrasemimediana;
+        }
+        .box-conocenos .box-text p{
+            .letrachica;
+        }
+    }
+
+    .galeria .layout-galeria{
+        grid-template: repeat(2,325px) e("/") repeat(2,325px);
+    }
+}
+@media (min-width:800px) and (max-width:900px){
+
+}
+@media (min-width:800px){
+#anim{
+    transform: translateY(100vh);
+}
+}
