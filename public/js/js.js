@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded',() => {
         for (i=0; i < anim.length; i++){
             let altura = anim[i].offsetTop;
             let maxwidth = galeria.offsetWidth;
-            if (altura - 900 < PixelesRecorridos){
+            if (altura - 1200 < PixelesRecorridos){
                 anim[i].style.transform = "translateX(0px)";
             }
+
             else if ( altura + 100 > PixelesRecorridos && maxwidth < 800 ){
                 anim[0].style.transform = "translateX(-50vw)";
                 anim[1].style.transform = "translateX(50vw)";
