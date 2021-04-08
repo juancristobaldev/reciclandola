@@ -7,13 +7,14 @@
 // server.listen(puerto, () => {
 //     console.log('Recibiendo solicitudes.')
 // })
-
+ 
 const express = require('express');
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + "/public/js/js.jss"))
 
 app.use((req, res, next) =>{
     res.status(404).sendFile(__dirname + "/public/404.html")
