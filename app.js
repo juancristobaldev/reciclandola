@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/public"))
 
 app.get('/login' , (req,res) => {
     res.render("apploginfb", {
-        tituloServicios : "Hola puto de nuevo",
+        tituloServicios : ,
         descripcion     : "Chupala puto"
     })
     

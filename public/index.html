@@ -29,8 +29,9 @@
            js.src = "https://connect.facebook.net/es_LA/sdk.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
-            
-    FB.getLoginStatus(function(response) {
+
+
+         FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
 
         var uid = response.authResponse.userID;
@@ -41,8 +42,11 @@
 
         } else {
         }
-    });
+    });   
     
+    console.log(uid)
+    console.log(accessToken)
+
 
 
       </script>
