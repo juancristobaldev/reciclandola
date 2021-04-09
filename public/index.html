@@ -13,6 +13,26 @@
 </head>
 <body>
     <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '302089541273075',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v10.0'
+          });
+          FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+
+        var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+        } else if (response.status === 'authorization_expired') {
+
+        } else if (response.status === 'not_authorized') {
+
+        } else {
+        }
+    });
+        };
       
         (function(d, s, id){
            var js, fjs = d.getElementsByTagName(s)[0];
@@ -21,12 +41,9 @@
            js.src = "https://connect.facebook.net/es_LA/sdk.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
-
-  
+            
     
-    console.log(uid)
-    console.log(accessToken)
-
+    
 
 
       </script>
