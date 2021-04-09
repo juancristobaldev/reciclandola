@@ -9,7 +9,14 @@
 </head>
 <body>
     <script>
-                 FB.getLoginStatus(function(response) {
+        window.fbAsyncInit = function() {
+        FB.init({
+        appId            : '302089541273075',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v10.0'
+        });
+        FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
 
         var uid = response.authResponse.userID;
@@ -20,10 +27,20 @@
 
         } else {
         }
-        FB.getLoginStatus(function(response) {
-  // this will be called when the roundtrip to Facebook has completed
-}, true);
-    }); 
+
+        }); 
+        };
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/es_LA/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+            
+
+
+                 
     </script>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v10.0&appId=302089541273075&autoLogAppEvents=1" nonce="G3CHNBRA"></script>
