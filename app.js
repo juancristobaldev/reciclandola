@@ -13,7 +13,18 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
+
 app.use(express.static(__dirname + "/public"))
+
+app.get('/login' , (req,res) => {
+    res.render("servicios", {
+        tituloServicios : "Hola puto de nuevo",
+        descripcion     : "Chupala puto"
+    })
+    
+})
 
 
 app.use((req, res, next) =>{
