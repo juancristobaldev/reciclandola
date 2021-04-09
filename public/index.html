@@ -30,7 +30,7 @@
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
             
-         FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
 
         var uid = response.authResponse.userID;
@@ -41,7 +41,8 @@
 
         } else {
         }
- });
+    });
+    FB.login()
 
 
       </script>
