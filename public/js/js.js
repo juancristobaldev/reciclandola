@@ -54,17 +54,25 @@ document.addEventListener('DOMContentLoaded',() => {
     let btnleft = document.getElementsByClassName("buton-left")
     let btnright = document.getElementsByClassName("buton-right")
     document.querySelector('#btnleft').addEventListener('click', function(){
-        
+        let widthscreen = visualViewport.width;
+        if ( widthscreen > 800){
             for(i = 0; i < article.length; i++){
                 article[i].style.transform = 'translatex(0px)';
                 articleright[i].style.transform = "translatex(0px)";
                 btnleft[i].style.width = "20px";
                 btnright[i].style.width = "8px";
-            }
+            }}
+        else if ( widthscreen < 800){
+            for(i = 0; i < article.length; i++){
+            article[i].style.transform = 'translatex(27.5vw)';
+            articleright[i].style.transform = "translatex(70vw)";
+            btnleft[i].style.width = "20px";
+            btnright[i].style.width = "8px";
+        }}
     });
     document.querySelector('#btnright').addEventListener('click', function(){
-        let widthscreen = screen.width;
-        if( widthscreen > 800){
+        let widthscreen = visualViewport.width;
+        if ( widthscreen > 800){
         for(i = 0; i < article.length; i++){
             article[i].style.transform = 'translatex(-67.5vw)';
             articleright[i].style.transform = "translatex(-70vw)";
@@ -75,7 +83,7 @@ document.addEventListener('DOMContentLoaded',() => {
         else if ( widthscreen < 800){
             for(i = 0; i < article.length; i++){
                 article[i].style.transform = 'translatex(-100vw)';
-                articleright[i].style.transform = "translatex(-90vw)";
+                articleright[i].style.transform = "translatex(-28vw)";
                 btnright[i].style.width = "20px";
                 btnleft[i].style.width = "8px";
             }
@@ -84,6 +92,5 @@ document.addEventListener('DOMContentLoaded',() => {
 
     });
 });
-
 
 
