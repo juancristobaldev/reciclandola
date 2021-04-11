@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded',() => {
     let anim = document.querySelectorAll("#anim");
     let galeria = document.getElementById("galeria");
 
+    
+
     function Animaciones(){
         var i;
         let PixelesRecorridos = document.documentElement.scrollTop;
@@ -27,13 +29,10 @@ document.addEventListener('DOMContentLoaded',() => {
         for (i=0; i < anim.length; i++){
             let altura = anim[i].offsetTop;
             let maxwidth = galeria.offsetWidth;
-            if (altura - 1800 < PixelesRecorridos && maxwidth < 800){
+            if (altura - 400 < PixelesRecorridos){
                 anim[i].style.transform = "translateX(0px)";
             }
-            if (altura - 600 < PixelesRecorridos && maxwidth > 800){
-                anim[i].style.transform = "translateX(0px)";
-            }
-            else if ( altura + 300 > PixelesRecorridos && maxwidth < 800 ){
+            else if ( altura + 100 > PixelesRecorridos && maxwidth < 800 ){
                 anim[0].style.transform = "translateX(-50vw)";
                 anim[1].style.transform = "translateX(50vw)";
                 anim[2].style.transform = "translateX(50vw)";
