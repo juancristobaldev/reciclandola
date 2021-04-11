@@ -4,13 +4,19 @@ document.addEventListener('DOMContentLoaded',() => {
     let headerbackground = document.getElementById("nav");
     let tiendalink = document.getElementById("tiendalink");
     let anim = document.querySelectorAll("#anim");
+    let anim1 = document.getElementById("anim")
     let galeria = document.getElementById("galeria");
+
+ 
 
     
 
     function Animaciones(){
+        let altura = anim1.offsetTop;
         var i;
         let PixelesRecorridos = document.documentElement.scrollTop;
+        let maxwidth = galeria.offsetWidth;
+        console.log(PixelesRecorridos,altura,maxwidth)
         for (i=0; i < linkmenu.length; i++){
             if (300 < PixelesRecorridos){
                 headerbackground.style.backgroundColor = "white";
@@ -27,9 +33,7 @@ document.addEventListener('DOMContentLoaded',() => {
             }
         }
         for (i=0; i < anim.length; i++){
-            let altura = anim[i].offsetTop;
-            let maxwidth = galeria.offsetWidth;
-            if (altura - 400 < PixelesRecorridos){
+            if (altura + 1000 < PixelesRecorridos){
                 anim[i].style.transform = "translateX(0px)";
             }
             else if ( altura + 100 > PixelesRecorridos && maxwidth < 800 ){
