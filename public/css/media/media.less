@@ -21,34 +21,33 @@
         }
     }
     .conocenos{
-        justify-content: center;
-        grid-template: 50px 50px 100px 150px 50px 50px  e("/")  50px 250px 50px ;
-        .img-front-vasos{
+        padding: 0px;
+        grid-template-columns: 100vw;
+        .img-back-vasos,.img-back-bong{
             display: none;
         }
-        .img-back-vasos{
+        .img-front-vasos,.img-front-bong{
             grid-column: 1 e("/") 4;
             grid-row: 2 e("/") 5;
         }
-        .box-conocenos{
+        .article-vasos .box-conocenos,.article-bong .box-conocenos-bong{
             grid-column: 2 e("/") 3;
             grid-row: 4 e("/") 6;
-            display: grid;
             grid-template: 25% 50% 25% e("/") 32.5% 32.5% 35% ;
-            .box-tittle h1{
-                .letrasemichica;}
-        
-            .box-text{
-                font-size: 12.5px;
-                padding: 10px 20px;
-                text-align: left;
-            }
-            .box-button{   
-                width: 100%;
-                a{
+        }
+        .article-vasos,.article-bong{
+            justify-content: center;
+            width: 100%;
+            grid-template: 50px 50px 75px 125px 50px 50px e("/") 25px 200px 25px;
+            .box-conocenos,.box-conocenos-bong{
+                grid-template: 25% 50% 25% e("/") 32.5% 27.5% 40%;
+                .box-tittle h1,.box-tittle-bong h1{
                     .letrachica;
-                    padding: 7.5px;
                 }
+                .box-text p,.box-text-bong p,.box-button a,.box-button-bong a{
+                    .letramuychica;
+                }
+                 
             }
         }
     }
@@ -111,18 +110,30 @@
 
 @media (min-width:300px) and (max-width:400px){
     .conocenos{
-        grid-template: 50px 50px 75px 125px 50px 50px e("/") 25px 200px 25px;
-        .box-conocenos{
-            grid-template: 25% 50% 25% e("/") 32.5% 27.5% 40%;
-            .box-tittle h1{
-                .letrachica;
-            }
-            .box-text p,.box-button a{
-                .letramuychica;
-            }
-             
+        grid-template-columns: 100vw;
+        .article-vasos{
+            grid-column: 1 e("/") 2;
         }
-    }
+        .article-bong{
+            grid-column: 2 e("/") 3;
+        }
+        .article-vasos,.article-bong{
+            justify-content: center;
+            width: 100%;
+            grid-template: 50px 50px 75px 125px 50px 50px e("/") 25px 200px 25px;
+            .box-conocenos,.box-conocenos-bong{
+                grid-template: 25% 50% 25% e("/") 32.5% 27.5% 40%;
+                .box-tittle h1,.box-tittle-bong h1{
+                    .letrachica;
+                }
+                .box-text p,.box-text-bong p,.box-button a,.box-button-bong a{
+                    .letramuychica;
+                }
+                 
+            }
+        }
+        }
+        
     .visualrest-info p{
         .letramuychica;
     }

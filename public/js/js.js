@@ -64,13 +64,25 @@ document.addEventListener('DOMContentLoaded',() => {
             }
     });
     document.querySelector('#btnright').addEventListener('click', function(){
+        let widthscreen = screen.width;
+        if( widthscreen > 800){
         for(i = 0; i < article.length; i++){
             article[i].style.transform = 'translatex(-67.5vw)';
             articleright[i].style.transform = "translatex(-70vw)";
             btnright[i].style.width = "20px";
             btnleft[i].style.width = "8px";
             
+        }}
+        else if ( widthscreen < 800){
+            for(i = 0; i < article.length; i++){
+                article[i].style.transform = 'translatex(-100vw)';
+                articleright[i].style.transform = "translatex(-90vw)";
+                btnright[i].style.width = "20px";
+                btnleft[i].style.width = "8px";
+            }
         }
+
+
     });
 });
 
