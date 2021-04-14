@@ -29,13 +29,12 @@ app.get('/login' , (req,res) => {
     
 })
 
-app.get('/', (req,res) => {
+app.get('/index.html', (req,res) => {
     res.render('form');
     res.sendFile(__dirname + '/public/index.hmtl')
 })
 
-app.post('/', (req,res) =>{
-    console.log(req.body);
+app.post('/index.html', (req,res) =>{
     const {name,email,message} = req.body;
     const contentHmtl = `
     <h1>Formulario de nodemailer</h1>
@@ -65,7 +64,7 @@ app.post('/', (req,res) =>{
             res.status(500).send(error.message)
         } else {
             console.log('Enviado correctamento')
-            res.status(200).jsonp(req.body)
+            res.sendFile(__dirname + '/public/index.html')
         }
     });
 });
