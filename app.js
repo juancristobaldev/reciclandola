@@ -10,6 +10,9 @@
 
 const express = require('express');
 const app = express();
+const nodemailer = require('nodemailer')
+
+app.use(express.urlencoded({extended: false}))
 
 const port = process.env.PORT || 3000;
 
@@ -26,10 +29,48 @@ app.get('/login' , (req,res) => {
     
 })
 
-
-app.use((req, res, next) =>{
-    res.status(404).sendFile(__dirname + "/public/404.html")
+app.get('/', (req,res) => {
+    res.render('form');
+    res.sendFile(__dirname + '/public/index.hmtl')
 })
+
+app.post('/', (req,res) =>{
+    console.log(req.body);
+    const {name,email,message} = req.body;
+    const contentHmtl = `
+    <h1>Formulario de nodemailer</h1>
+    <ul>
+        <li>name: ${name}</li>
+        <li>email: ${email}</li>
+    </ul>
+    <p>${message}</p>
+    `;
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'lauriane14@ethereal.email',
+            pass: 'nNKP7DNb8pBAAh2KnV'
+        }
+    });
+    const mailOptions={
+        from:"Remitente",
+        to:"juancristobaldev@gmail.com",
+        subject:"Nodemailer prueba",
+        html: contentHmtl,
+        
+    };
+    transporter.sendMail(mailOptions, (error, info) =>{
+        if(error){
+            res.status(500).send(error.message)
+        } else {
+            console.log('Enviado correctamento')
+            res.status(200).jsonp(req.body)
+        }
+    });
+});
+
+
 
 
 app.listen(port, () =>{
