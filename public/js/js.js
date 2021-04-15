@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded',() => {
             setTimeout(function (){
                     articleright.style.transition="1.5s"
                     articleleft.style.transform = 'translatex(-100vw)';
-                    articleright.style.transform = "translatex(-94.6vw)";
+                    articleright.style.transform = "translatex(-100vw)";
                     btnright.style.width = "20px";
                     btnleft.style.width = "8px";
             },100)
