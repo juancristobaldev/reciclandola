@@ -1,5 +1,62 @@
 
-// document.addEventListener('DOMContentLoaded',() => {
+document.addEventListener('DOMContentLoaded',() => {
+    let article = document.getElementsByClassName("article-vasos");
+    let articleleft = document.getElementById("article-vasos")
+    let articleright = document.getElementById("article-bong")
+    let btnleft = document.getElementById("btnleft")
+    let btnright = document.getElementById("btnright")
+    let llave = 0;
+    document.querySelector('#btnleft').addEventListener('click', function(){
+        let widthscreen = visualViewport.width;
+        if (llave > 0){
+            if ( widthscreen > 800){
+                    articleleft.style.transform = 'translatex(0px)';
+                    articleright.style.transform = "translatex(0px)";
+                    btnleft.style.width = "20px";
+                    btnright.style.width = "8px";}
+            else if ( widthscreen < 800){
+                articleright.style.transform="translatex(0vw)"
+                articleleft.style.transform = 'translatex(0vw)';
+                btnleft.style.width = "20px";
+                btnright.style.width = "8px";
+                setTimeout(function(){
+                    for(i = 0; i < article.length; i++){
+                        articleright.style.transition="0s"
+                        articleright.style.right="200vw";
+                    
+                    }
+                },1500)
+            }
+            else{}
+        }
+    });
+
+    document.querySelector('#btnright').addEventListener('click', function(){
+        let widthscreen = visualViewport.width;
+        if ( widthscreen > 800){
+            llave++;
+            articleleft.style.transform = 'translatex(-67.5vw)';
+            articleright.style.transform = "translatex(-70vw)";
+            btnright.style.width = "20px";
+            btnleft.style.width = "8px";
+        }
+        else if ( widthscreen < 800){
+            llave++;
+            articleright.style.right="0vw";
+            setTimeout(function (){
+                    articleright.style.transition="1.5s"
+                    articleleft.style.transform = 'translatex(-100vw)';
+                    articleright.style.transform = "translatex(-94.6vw)";
+                    btnright.style.width = "20px";
+                    btnleft.style.width = "8px";
+            },100)
+        }
+
+
+    });
+
+    
+})
 //     let linkmenu = document.querySelectorAll("#linkmenu");
 //     let headerbackground = document.getElementById("nav");
 //     let tiendalink = document.getElementById("tiendalink");
@@ -64,27 +121,27 @@
 //             btnright[i].style.width = "8px";
 //         }}
 //     });
-//     document.querySelector('#btnright').addEventListener('click', function(){
-//         let widthscreen = visualViewport.width;
-//         if ( widthscreen > 800){
-//         for(i = 0; i < article.length; i++){
-//             article[i].style.transform = 'translatex(-67.5vw)';
-//             articleright[i].style.transform = "translatex(-70vw)";
-//             btnright[i].style.width = "20px";
-//             btnleft[i].style.width = "8px";
+    // document.querySelector('#btnright').addEventListener('click', function(){
+    //     let widthscreen = visualViewport.width;
+    //     if ( widthscreen > 800){
+    //     for(i = 0; i < article.length; i++){
+    //         article[i].style.transform = 'translatex(-67.5vw)';
+    //         articleright[i].style.transform = "translatex(-70vw)";
+    //         btnright[i].style.width = "20px";
+    //         btnleft[i].style.width = "8px";
             
-//         }}
-//         else if ( widthscreen < 800){
-//             for(i = 0; i < article.length; i++){
-//                 article[i].style.transform = 'translatex(-100vw)';
-//                 articleright[i].style.transform = "translatex(-28vw)";
-//                 btnright[i].style.width = "20px";
-//                 btnleft[i].style.width = "8px";
-//             }
-//         }
+    //     }}
+    //     else if ( widthscreen < 800){
+    //         for(i = 0; i < article.length; i++){
+    //             article[i].style.transform = 'translatex(-100vw)';
+    //             articleright[i].style.transform = "translatex(-28vw)";
+    //             btnright[i].style.width = "20px";
+    //             btnleft[i].style.width = "8px";
+    //         }
+    //     }
 
 
-//     });
+    // });
 // });
 
 
