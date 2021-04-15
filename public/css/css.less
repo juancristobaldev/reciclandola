@@ -2,7 +2,8 @@
     transition  : 1.5s;
     margin      : 0px;
     font-family : 'josefin sans' ;
-    font-weight : lighter;}
+    font-weight : lighter;
+}
     .input_lightbox{
         visibility  : hidden;
     }
@@ -102,6 +103,7 @@ header{
     }
 }
 .tittle{
+    background-color: #e8e8e8;
     .displayflex-center;
     width           : 100%;
     text-align      : center;
@@ -124,7 +126,6 @@ header{
     display: grid;
     grid-template: 1vh 95vh e("/") 80vw 30vw;   
     align-items: center;
-    padding: 0px 100px; 
     transition: 1s;                  
     
     .btns{
@@ -132,6 +133,7 @@ header{
         position: relative;
         left: 90%;
         top: 30px;
+        z-index: 1002;
         .buton{
             width: 8px;
             height: 4px;
@@ -272,9 +274,6 @@ header{
         justify-content: center;
         gap: 5px;
         .layout-img1{
-            background-image: url(/img/imglayout/1.JPG);
-            background-size: cover;
-            background-position-y: -35px;
         }
         .layout-img2{
             background-image: url(/img/imglayout/2.JPG);
@@ -302,10 +301,6 @@ header{
             background-size: cover;
             grid-row: 1 e("/") 4;
             grid-column: 3 e("/") 4;
-        }
-        #anim{
-            position: relative;
-            z-index: 1;
         }
     }
 }
@@ -344,6 +339,8 @@ header{
             grid-template: 10vh 10vh 20vh 15vh 5vh e("/") 30% 70%;
             input{
                 width: 90%;
+                box-shadow: 2px 3px 3px #C9C9C9;
+
             }
             .nombre{
                 grid-row: 1 e("/") 2;
@@ -382,6 +379,7 @@ header{
     }
     input:focus{
         outline: none;
+
     }
 }
 
