@@ -14,15 +14,8 @@ document.addEventListener('DOMContentLoaded',() => {
           
         FB.AppEvents.logPageView();  
         FB.getLoginStatus(function(response) {
-      statusChangeCallback({ 
-          status: 'connected',
-          authResponse: {
-          accessToken: '...',
-          expiresIn:'...',
-          signedRequest:'...',
-          userID:'...'
-      }});
-      }); 
+            statusChangeCallback(response);
+        });
           
       };
       (function(d, s, id){
