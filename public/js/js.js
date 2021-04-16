@@ -6,10 +6,10 @@
 document.addEventListener('DOMContentLoaded',() => {
     window.fbAsyncInit = function() {
         FB.init({
-          appId      : '{your-app-id}',
+          appId      : '302089541273075',
           cookie     : true,
           xfbml      : true,
-          version    : '{api-version}'
+          version    : 'v10.0'
         });
           
         FB.AppEvents.logPageView();  
