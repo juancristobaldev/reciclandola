@@ -21,7 +21,7 @@
         }
     }
     .conocenos{
-        padding: 0px;
+        padding: 10px 0px;
         display: grid;
         grid-template-columns: 100% 100%;
         grid-template-rows: 20px 400px;
@@ -55,7 +55,8 @@
             transition: 1s;
         }
         .article-vasos,.article-bong{
-            
+            height: auto;
+            width: auto;
             justify-content: center;
             grid-template: 50px 50px 75px 125px 50px 50px e("/") 25px 200px 25px;
             .box-conocenos,.box-conocenos-bong{
@@ -80,14 +81,14 @@
             .layout-img4,.layout-img5{
                 display: none;
             }
-            .img-box:nth-of-type(1){
+            .layout-img1:nth-of-type(1){
                 grid-row: 1 e("/") 3;
                 background-position-x: -50px;
                 background-position-y: 0px;
                 .animacionlayout{
                     background-image: url(/img/imglayout/1.JPG);
                     background-size: cover;
-                    background-position-y: -35px;
+                    background-position-x: -50px;
                     height: 100%;
                 }
             }

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded',() => {
     let btnleft = document.getElementById("btnleft")
     let btnright = document.getElementById("btnright")
     let llave = 0;
+    
     document.querySelector('#btnleft').addEventListener('click', function(){
         let widthscreen = visualViewport.width;
         if (llave > 0){
@@ -61,6 +62,34 @@ document.addEventListener('DOMContentLoaded',() => {
     });
 
     
+        function Animaciones(){
+        let headerbackground = document.getElementById("nav");
+        let linkmenu = document.querySelectorAll("#linkmenu");
+        let tiendalink = document.getElementById("tiendalink");
+        let anim1 = document.getElementById("anim")
+        let altura = anim1.offsetTop;
+        var i;
+        let PixelesRecorridos = document.documentElement.scrollTop;
+        let maxwidth = galeria.offsetWidth;
+        console.log(PixelesRecorridos,altura,maxwidth)
+        for (i=0; i < linkmenu.length; i++){
+            if (200 < PixelesRecorridos){
+                headerbackground.style.backgroundColor = "white";
+                linkmenu[i].style.color = "green";
+                tiendalink.style.border = "solid 1px green";
+                tiendalink.style.color = "green";
+                
+            }
+            else if (200 > PixelesRecorridos){
+                headerbackground.style.backgroundColor = "transparent";
+                linkmenu[i].style.color = "white";
+                tiendalink.style.border = "solid 1px white";
+                tiendalink.style.color = "white";
+            }
+        }
+    
+}
+window.addEventListener("scroll", Animaciones)
 })
 //     let linkmenu = document.querySelectorAll("#linkmenu");
 //     let headerbackground = document.getElementById("nav");
@@ -103,7 +132,7 @@ document.addEventListener('DOMContentLoaded',() => {
 //         }
 //     }
 
-//     window.addEventListener("scroll", Animaciones)
+
     
 //     let article = document.getElementsByClassName("article-vasos");
 //     let articleright = document.getElementsByClassName("article-bong")
