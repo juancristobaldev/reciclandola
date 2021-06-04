@@ -28,13 +28,16 @@ app.get('/login' , (req,res) => {
     })
     
 })
+app.get('/', (req, res) =>{
+    res.render('index')
+})
 
-app.get('/index.html', (req,res) => {
+app.get('index', (req,res) => {
     res.render('form');
     res.sendFile(__dirname + '/public/index.hmtl')
 })
 
-app.post('/index.html', (req,res) =>{
+app.post('index', (req,res) =>{
     const {name,email,message} = req.body;
     const contentHmtl = `
     <h1>Formulario de nodemailer</h1>
