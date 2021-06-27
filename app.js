@@ -8,11 +8,20 @@
 //     console.log('Recibiendo solicitudes.')
 // })
 
-const express = require('express');
-const app = express();
-const nodemailer = require('nodemailer')
+//1 - Invocamos a Express
 
-app.use(express.urlencoded({extended: false}))
+const express = require('express')
+const app = express();
+//2 - Invocamos a Nodemailer
+const nodemailer = require('nodemailer')
+//2 - seteamos urlencoded para capturar los datos del formulario
+
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+//3- Invocamos a dotenv
+const dotenv = require('dotenv')
+dotenv.config({path:'./env/.env'})
+
 
 const port = process.env.PORT || 3000;
 
@@ -21,16 +30,88 @@ app.set('views', __dirname + '/views')
 
 app.use(express.static(__dirname + "/public"))
 
+//6 - Invocamos a bcryptjs
+
+const bcryptjs = require('bcryptjs');
+
+//7 - Var de session
+const session = require('express-session')
+app.use(session({
+    secret:'secret',
+    resave: true,
+    saveUninitialized:true
+}))
+
+//8 - Establecemos las rutas
 app.get('/login' , (req,res) => {
-    res.render("apploginfb", {
-        tituloServicios : "Hola puto de nuevo",
-        descripcion     : "Chupala puto"
-    })
-    
+    res.render("login")
 })
 app.get('/', (req, res) =>{
-    res.render('index')
+    res.render('main')
 })
+//9 - Invocamos al modulo de conexion a la BD
+const connection = require('./database/db');
+
+//10- Autenticacion
+app.post('/auth', async (req, res)=>{
+    const user = req.body.user;
+    const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass, 8)
+  if(user && pass){
+      connection.query('SELECT * FROM users WHERE user = ?',[user], async (error, results)=>{
+          if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Error",
+                  alertMessage: "Usuario y/o password incorrectas",
+                  alertIcon: "error",
+                  showConfirmButton:true,
+                  timer:1500,
+                  ruta:'login'
+              })
+          }else{
+              req.session.loggedin = true;
+              req.session.name= results[0].name
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Conexion exitosa",
+                  alertMessage: "!Inicio de sesion correcto!",
+                  alertIcon: "success",
+                  showConfirmButton:false,
+                  timer:1500,
+                  ruta:''
+              })
+          }
+      })
+  }else{
+      res.render('login',{
+          alert:true,
+          alertTittle: "Advertencia",
+          alertMessage: "!Ingresa un usuario y/o password!",
+          alertIcon: "warning",
+          showConfirmButton:false,
+          timer:1500,
+          ruta:'login'
+      })
+  }
+  })
+// Auth pages
+
+app.get('/admin', (req, res)=>{
+    if(req.session.loggedin){
+        res.render('admin',{
+            login: true,
+            name: req.session.name
+        });
+    }else{
+        res.render('/admin', {
+            login:false,
+            name:'Debe iniciar sesion'
+            })
+        }
+    
+})
+
 
 app.get('index', (req,res) => {
     res.render('form');

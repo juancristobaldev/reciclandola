@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    font-family : 'josefin sans' ;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/img/login.JPG');
+    background-size: cover;
+}
+.titulo-login{
+    text-align: center;
+    padding: 40px 0px;
+    color: #2EBE3D;
+    font-family : 'josefin sans' ;
+    font-weight: 100;
+}
+.login-form{
+    border-radius:3%;  
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    height: 500px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, .8);
+
+}
+form{
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / 1fr;
+    grid-row: 2/6;
+}
+input{
+    box-shadow: 2px 3px 3px #C9C9C9;
+}
+#user,#pass{
+background-color: #F5F5F5;
+width: 80%;
+height: 60%;
+align-self: center;
+justify-self: center;
+border-radius: 5px;
+text-align: center;
+border: none;
+}
+.btn-login{
+color: white;
+height: 60%;
+width: 60%;
+ align-self: center;
+justify-self: center;
+border: 0px;
+background: #2EBE3D;background:linear-gradient(to right, #2EBE3D, #21872C);}
