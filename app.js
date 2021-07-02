@@ -104,7 +104,7 @@ app.get('/admin', (req, res)=>{
             name: req.session.name
         });
     }else{
-        res.render('/admin', {
+        res.render('index', {
             login:false,
             name:'Debe iniciar sesion'
             })

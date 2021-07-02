@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    host: 'us-cdbr-east-04.cleardb.com',
+    user: 'be4c1dddfb8b22',
+    password: '55b553e5',
+    database: 'heroku_5aba52e1f3c18b3'
 });
 connection.connect((error)=>{
     if(error){
