@@ -115,7 +115,7 @@ app.get('/admin', (req, res)=>{
 
 app.get('index', (req,res) => {
     res.render('form');
-    res.sendFile(__dirname + '/public/index.hmtl')
+    res.sendFile(__dirname + '/public/main.ejs')
 })
 
 app.post('index', (req,res) =>{
