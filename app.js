@@ -52,19 +52,6 @@ app.get('/', (req, res) =>{
 //9 - Invocamos al modulo de conexion a la BD
 const connection = require('./database/db');
 
-app.get('/customers',(req,res)=>{
-    const sql = 'SELECT * FROM usuarios';
-
-    connection.query(sql, (error, results)=>{
-        if (error) throw error;
-        if (results.length > 0) {
-            res.json(results);
-        } else {
-            res.send('Not result')
-        }
-    })
-})
-
 //10- Autenticacion
 app.post('/auth', async (req, res)=>{
     const user = req.body.user;
