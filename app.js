@@ -86,11 +86,27 @@ app.post('/auth', async (req, res)=>{
   if(user && pass){
       connection.query('SELECT * FROM users WHERE user = ?','SELECT * FROM users WHERE pass = ?',[user],[pass], async (error, results)=>{
           if(results.length == 0 ){
-              res.render('login')
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Error",
+                  alertMessage: "Usuario y/o password incorrectas",
+                  alertIcon: "error",
+                  showConfirmButton:true,
+                  timer:1500,
+                  ruta:'login'
+              })
           }else{
               req.session.loggedin = true;
               req.session.name= results[0].name
-              res.render('login')
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Conexion exitosa",
+                  alertMessage: "!Inicio de sesion correcto!",
+                  alertIcon: "success",
+                  showConfirmButton:false,
+                  timer:1500,
+                  ruta:''
+              })
           }
       })
   }else{
