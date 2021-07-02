@@ -52,56 +52,37 @@ app.get('/', (req, res) =>{
 //9 - Invocamos al modulo de conexion a la BD
 const connection = require('./database/db');
 
-app.get('/register', (req,res)=>{
-    res.render('register');
-    })
-
-//10- Registracion  
-app.post('/register', async (req,res)=>{
-    const user = req.body.user;
-    const pass = req.body.pass;
-    let passwordHaash = await bcryptjs.hash(pass, 8)
-    connection.query('INSERT INTO users SET ?', {user:user ,pass:passwordHaash}, async(error, results)=>{
-        if(error){
-            console.log(error)
-        }else{
-            res.render('register',{
-                alert:true,
-                alertTittle: "Registration",
-                alertMessage: "Successful Registration",
-                alertIcon:'success',
-                showConfirmButton:false,
-                timer:1500,
-                ruta:''
-            })
-        }
-    })
-
-})
-
 //10- Autenticacion
 app.post('/auth', async (req, res)=>{
     const user = req.body.user;
     const pass = req.body.pass;
+    let passwordHaash = await bcryptjs.hash(pass, 8)
   if(user && pass){
       connection.query('SELECT * FROM users WHERE user = ?',[user], async (error, results)=>{
-          if(results.length == 0 ){
-              res.render('login')
+          if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Error",
+                  alertMessage: "Usuario y/o password incorrectas",
+                  alertIcon: "error",
+                  showConfirmButton:true,
+                  timer:1500,
+                  ruta:'login'
+              })
           }else{
               req.session.loggedin = true;
               req.session.name= results[0].name
-              res.render('login')
+              res.render('login',{
+                  alert:true,
+                  alertTittle: "Conexion exitosa",
+                  alertMessage: "!Inicio de sesion correcto!",
+                  alertIcon: "success",
+                  showConfirmButton:false,
+                  timer:1500,
+                  ruta:''
+              })
           }
       })
-      connection.query('SELECT * FROM users WHERE pass = ?',[pass], async (error, results)=>{
-        if(results.length == 0 ){
-            res.render('login')
-        }else{
-            req.session.loggedin = true;
-            req.session.name= results[0].pass
-            res.render('login')
-        }
-    })
   }else{
       res.render('login',{
           alert:true,
@@ -134,7 +115,7 @@ app.get('/admin', (req, res)=>{
 
 app.get('index', (req,res) => {
     res.render('form');
-    res.sendFile(__dirname + '/public/main.ejs')
+    res.sendFile(__dirname + '/public/index.hmtl')
 })
 
 app.post('index', (req,res) =>{
