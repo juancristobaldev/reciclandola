@@ -106,7 +106,7 @@ if(req.method == "POST"){
     connection.query(sql, function(err,results){
         if(results.length > 0){
             res.redirect('/admin')
-            req.session.loggedin = true;
+            req.session.loggedin = false;
         }else{
             res.render('login.ejs')
         }
