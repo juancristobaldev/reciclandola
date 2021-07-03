@@ -107,7 +107,7 @@ if(req.method == "POST"){
     const sql = "SELECT user, pass FROM `users` WHERE `user`='"+name+"' and `pass`='"+pass+"'"
     connection.query(sql, function(err,results){
         if(results.length > 0){
-            res.redirect('/admin')
+            res.render('admin.ejs')
         }else{
             res.render('main.ejs')
         }
