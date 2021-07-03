@@ -131,7 +131,7 @@ app.get('/admin', (req, res)=>{
     if(req.session.loggedin == true){
         res.render('admin.ejs')
     }else{
-        res.redirect('/login')}}
+        res.redirect('/login')}
 
 
 app.get('main', (req,res) => {
