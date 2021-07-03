@@ -131,9 +131,7 @@ app.get('/consulte', (req,res)=>{
 })
 
 app.get('/admin' , (req,res) => {
-    if(ses = 0){
-        res.redirect('/login')
-    }else{render('admin')}
+    res.render('admin')
 })
 
 
