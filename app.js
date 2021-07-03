@@ -53,49 +53,69 @@ app.get('/', (req, res) =>{
 const connection = require('./database/db');
 
 //10- Autenticacion
-app.post('/auth', async (req, res)=>{
-    const user = req.body.user;
-    const pass = req.body.pass;
-    let passwordHaash = await bcryptjs.hash(pass, 8)
-  if(user && pass){
-      connection.query('SELECT * FROM users WHERE user = ?',[user], async (error, results)=>{
-          if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
-              res.render('login',{
-                  alert:true,
-                  alertTittle: "Error",
-                  alertMessage: "Usuario y/o password incorrectas",
-                  alertIcon: "error",
-                  showConfirmButton:true,
-                  timer:1500,
-                  ruta:'login'
-              })
-          }else{
-              req.session.loggedin = true;
-              req.session.name= results[0].name
-              res.render('login',{
-                  alert:true,
-                  alertTittle: "Conexion exitosa",
-                  alertMessage: "!Inicio de sesion correcto!",
-                  alertIcon: "success",
-                  showConfirmButton:false,
-                  timer:1500,
-                  ruta:''
-              })
-          }
-      })
-  }else{
-      res.render('login',{
-          alert:true,
-          alertTittle: "Advertencia",
-          alertMessage: "!Ingresa un usuario y/o password!",
-          alertIcon: "warning",
-          showConfirmButton:false,
-          timer:1500,
-          ruta:'login'
-      })
-  }
-  })
+// app.post('/auth', async (req, res)=>{
+//     const user = req.body.user;
+//     const pass = req.body.pass;
+//     let passwordHaash = await bcryptjs.hash(pass, 8)
+//   if(user && pass){
+//       connection.query('SELECT * FROM users WHERE user = ?',[user], async (error, results)=>{
+//           if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+//               res.render('login',{
+//                   alert:true,
+//                   alertTittle: "Error",
+//                   alertMessage: "Usuario y/o password incorrectas",
+//                   alertIcon: "error",
+//                   showConfirmButton:true,
+//                   timer:1500,
+//                   ruta:'login'
+//               })
+//           }else{
+//               req.session.loggedin = true;
+//               req.session.name= results[0].name
+//               res.render('login',{
+//                   alert:true,
+//                   alertTittle: "Conexion exitosa",
+//                   alertMessage: "!Inicio de sesion correcto!",
+//                   alertIcon: "success",
+//                   showConfirmButton:false,
+//                   timer:1500,
+//                   ruta:''
+//               })
+//           }
+//       })
+//   }else{
+//       res.render('login',{
+//           alert:true,
+//           alertTittle: "Advertencia",
+//           alertMessage: "!Ingresa un usuario y/o password!",
+//           alertIcon: "warning",
+//           showConfirmButton:false,
+//           timer:1500,
+//           ruta:'login'
+//       })
+//   }
+//   })
 // Auth pages
+
+app.post ('/auth', async (req,res)=>{
+var message = "";
+var sess = req.session;
+if(req.method == "POST"){
+    const post = req.body;
+    const name = post.user;
+    const pass = post.pass;
+
+    const sql = "SELECT user, pass FROM `users` WHERE `user`='"+name+"' and `pass`='"+pass+"'"
+    connection.query(sql, function(err,results){
+        if(results.length > 0){
+            res.redirect('/admin')
+        }else{
+            message = 'Te equivocaste.';
+            res.render('main.ejs', alert(message))
+        }
+    })
+}
+})
 
 app.get('/consulte', (req,res)=>{
     const sql = 'SELECT * FROM users';
