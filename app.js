@@ -99,7 +99,7 @@ const { render } = require('ejs');
 // Auth pages
 
 app.post ('/auth', async (req,res)=>{
-var sess = req.session;
+var sess = "";
 if(req.method == "POST"){
     const post = req.body;
     const name = post.user;
@@ -109,10 +109,9 @@ if(req.method == "POST"){
     connection.query(sql, function(err,results){
         if(results.length > 0){
             res.redirect('/admin')
-            session = true;
+            ses + 1;
         }else{
             res.render('login.ejs')
-            session = false;
         }
     })
 }
@@ -132,10 +131,10 @@ app.get('/consulte', (req,res)=>{
 })
 
 app.get('/admin' , (req,res) => {
-    if(session = true){
-        res.render('admin')}
+    if(ses == 0){
+        res.render('login')}
     else{
-        res.render('login')
+        res.render('admin')
     }   
 })
 
