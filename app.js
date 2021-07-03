@@ -97,6 +97,19 @@ app.post('/auth', async (req, res)=>{
   })
 // Auth pages
 
+app.get('/consulte', (req,res)=>{
+    const sql = 'SELECT * FROM users';
+    
+    connection.query(sql, (error, results)=>{
+        if(error)throw error;
+        if(results.length > 0){
+            res.json(results)
+        }else {
+            res.send('Not result')
+        }
+    })
+})
+
 app.get('/admin', (req, res)=>{
     if(req.session.loggedin){
         res.render('admin',{
