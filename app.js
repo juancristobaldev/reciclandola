@@ -98,7 +98,6 @@ const connection = require('./database/db');
 // Auth pages
 
 app.post ('/auth', async (req,res)=>{
-var message = "";
 var sess = req.session;
 if(req.method == "POST"){
     const post = req.body;
@@ -110,8 +109,7 @@ if(req.method == "POST"){
         if(results.length > 0){
             res.redirect('/admin')
         }else{
-            message = 'Te equivocaste.';
-            res.render('main.ejs', alert(message))
+            res.render('main.ejs')
         }
     })
 }
@@ -137,7 +135,7 @@ app.get('/admin', (req, res)=>{
             name: req.session.name
         });
     }else{
-        res.render('index', {
+        res.render('main', {
             login:false,
             name:'Debe iniciar sesion'
             })
@@ -146,12 +144,12 @@ app.get('/admin', (req, res)=>{
 })
 
 
-app.get('index', (req,res) => {
+app.get('main', (req,res) => {
     res.render('form');
-    res.sendFile(__dirname + '/public/index.hmtl')
+    res.sendFile(__dirname + '/public/main.ejs')
 })
 
-app.post('index', (req,res) =>{
+app.post('main', (req,res) =>{
     const {name,email,message} = req.body;
     const contentHmtl = `
     <h1>Formulario de nodemailer</h1>
@@ -181,7 +179,7 @@ app.post('index', (req,res) =>{
             res.status(500).send(error.message)
         } else {
             console.log('Enviado correctamento')
-            res.sendFile(__dirname + '/public/index.html')
+            res.sendFile(__dirname + '/public/main.ejs')
         }
     });
 });
