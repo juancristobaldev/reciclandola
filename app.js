@@ -109,9 +109,10 @@ if(req.method == "POST"){
     connection.query(sql, function(err,results){
         if(results.length > 0){
             res.redirect('/admin')
-            ses = 1;
+            session = true;
         }else{
-            res.render('main.ejs')
+            res.render('login.ejs')
+            session = false;
         }
     })
 }
@@ -131,7 +132,11 @@ app.get('/consulte', (req,res)=>{
 })
 
 app.get('/admin' , (req,res) => {
-    res.render('admin')
+    if(session = true){
+        res.render('admin')}
+    else{
+        res.render('login')
+    }   
 })
 
 
