@@ -128,18 +128,10 @@ app.get('/consulte', (req,res)=>{
 })
 
 app.get('/admin', (req, res)=>{
-    if(req.session.loggedin){
-        res.render('admin.ejs',{
-            login: true,
-            name: req.session.name
-        });
+    if(req.session.loggedin == true){
+        res.render('admin.ejs')
     }else{
-        res.redirect('/login', {
-            login:false
-            })
-        }
-    
-})
+        res.redirect('/login')}}
 
 
 app.get('main', (req,res) => {
