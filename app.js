@@ -97,19 +97,17 @@ const { render } = require('ejs');
 //   }
 //   })
 // Auth pages
-
+var sess = 0;
 app.post ('/auth', async (req,res)=>{
-var sess = "";
 if(req.method == "POST"){
     const post = req.body;
     const name = post.user;
     const pass = post.pass;
-    var ses = 0;
     const sql = "SELECT user, pass FROM `users` WHERE `user`='"+name+"' and `pass`='"+pass+"'"
     connection.query(sql, function(err,results){
         if(results.length > 0){
             res.redirect('/admin')
-            ses + 1;
+            sess + 1;
         }else{
             res.render('login.ejs')
         }
@@ -132,6 +130,7 @@ app.get('/consulte', (req,res)=>{
 
 app.get('/admin', (req,res)=>{
     res.render('admin')
+    console.log('La sesion es '+sess)
 })
 
 
