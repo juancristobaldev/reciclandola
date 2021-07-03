@@ -97,7 +97,6 @@ const { render } = require('ejs');
 //   }
 //   })
 // Auth pages
-var sess = 0;
 app.post ('/auth', async (req,res)=>{
 if(req.method == "POST"){
     const post = req.body;
@@ -107,7 +106,7 @@ if(req.method == "POST"){
     connection.query(sql, function(err,results){
         if(results.length > 0){
             res.redirect('/admin')
-            sess + 1;
+            req.session.loggedin = true;
         }else{
             res.render('login.ejs')
         }
@@ -128,9 +127,19 @@ app.get('/consulte', (req,res)=>{
     })
 })
 
-app.get('/admin', (req,res)=>{
-    res.render('admin')
-    console.log('La sesion es '+sess)
+app.get('/admin', (req, res)=>{
+    if(req.session.loggedin){
+        res.render('admin',{
+            login: true,
+            name: req.session.name
+        });
+    }else{
+        res.render('login', {
+            login:false,
+            name:'Debe iniciar sesion'
+            })
+        }
+    
 })
 
 
