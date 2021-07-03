@@ -129,11 +129,11 @@ app.get('/consulte', (req,res)=>{
 
 app.get('/admin', (req, res)=>{
     if(req.session.loggedin){
-        res.render('admin',{
+        res.render('login',{
             login:true
         })
     }else{
-        res.render('main',{
+        res.render('admin',{
             login:false
         })
     }
