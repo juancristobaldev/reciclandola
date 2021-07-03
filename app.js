@@ -128,7 +128,15 @@ app.get('/consulte', (req,res)=>{
 })
 
 app.get('/admin', (req, res)=>{
-    res.render('admin')
+    if(req.session.loggedin){
+        res.render('admin',{
+            login:true
+        })
+    }else{
+        res.render('main',{
+            login:false
+        })
+    }
 })
 
 
