@@ -51,6 +51,7 @@ app.get('/', (req, res) =>{
 })
 //9 - Invocamos al modulo de conexion a la BD
 const connection = require('./database/db');
+const { render } = require('ejs');
 
 //10- Autenticacion
 // app.post('/auth', async (req, res)=>{
@@ -103,11 +104,12 @@ if(req.method == "POST"){
     const post = req.body;
     const name = post.user;
     const pass = post.pass;
-
+    var ses = 0;
     const sql = "SELECT user, pass FROM `users` WHERE `user`='"+name+"' and `pass`='"+pass+"'"
     connection.query(sql, function(err,results){
         if(results.length > 0){
-            res.render('admin.ejs')
+            res.redirect('/admin')
+            ses = 1;
         }else{
             res.render('main.ejs')
         }
@@ -128,19 +130,10 @@ app.get('/consulte', (req,res)=>{
     })
 })
 
-app.get('/admin', (req, res)=>{
-    if(req.session.loggedin){
-        res.render('admin',{
-            login: true,
-            name: req.session.name
-        });
-    }else{
-        res.render('main', {
-            login:false,
-            name:'Debe iniciar sesion'
-            })
-        }
-    
+app.get('/admin' , (req,res) => {
+    if(ses = 0){
+        res.redirect('/login')
+    }else{render('admin')}
 })
 
 
