@@ -130,12 +130,8 @@ app.get('/consulte', (req,res)=>{
     })
 })
 
-app.get('/admin' , (req,res) => {
-    if(ses == 0){
-        res.render('login')}
-    else{
-        res.render('admin')
-    }   
+app.get('/admin', (req,res)=>{
+    res.render('admin')
 })
 
 
