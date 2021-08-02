@@ -30,17 +30,7 @@ app.set('views', __dirname + '/views')
 
 app.use(express.static(__dirname + "/public"))
 
-//6 - Invocamos a bcryptjs
 
-const bcryptjs = require('bcryptjs');
-
-//7 - Var de session
-const session = require('express-session')
-app.use(session({
-    secret:'secret',
-    resave: true,
-    saveUninitialized:true
-}))
 
 //8 - Establecemos las rutas
 app.get('/login' , (req,res) => {
@@ -49,94 +39,12 @@ app.get('/login' , (req,res) => {
 app.get('/', (req, res) =>{
     res.render('main')
 })
-//9 - Invocamos al modulo de conexion a la BD
-const connection = require('./database/db');
+
 const { render } = require('ejs');
 
-//10- Autenticacion
-// app.post('/auth', async (req, res)=>{
-//     const user = req.body.user;
-//     const pass = req.body.pass;
-//     let passwordHaash = await bcryptjs.hash(pass, 8)
-//   if(user && pass){
-//       connection.query('SELECT * FROM users WHERE user = ?',[user], async (error, results)=>{
-//           if(results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
-//               res.render('login',{
-//                   alert:true,
-//                   alertTittle: "Error",
-//                   alertMessage: "Usuario y/o password incorrectas",
-//                   alertIcon: "error",
-//                   showConfirmButton:true,
-//                   timer:1500,
-//                   ruta:'login'
-//               })
-//           }else{
-//               req.session.loggedin = true;
-//               req.session.name= results[0].name
-//               res.render('login',{
-//                   alert:true,
-//                   alertTittle: "Conexion exitosa",
-//                   alertMessage: "!Inicio de sesion correcto!",
-//                   alertIcon: "success",
-//                   showConfirmButton:false,
-//                   timer:1500,
-//                   ruta:''
-//               })
-//           }
-//       })
-//   }else{
-//       res.render('login',{
-//           alert:true,
-//           alertTittle: "Advertencia",
-//           alertMessage: "!Ingresa un usuario y/o password!",
-//           alertIcon: "warning",
-//           showConfirmButton:false,
-//           timer:1500,
-//           ruta:'login'
-//       })
-//   }
-//   })
-// Auth pages
-app.post ('/auth', async (req,res)=>{
-if(req.method == "POST"){
-    const post = req.body;
-    const name = post.user;
-    const pass = post.pass;
-    const sql = "SELECT user, pass FROM `users` WHERE `user`='"+name+"' and `pass`='"+pass+"'"
-    connection.query(sql, function(err,results){
-        if(results.length > 0){
-            res.redirect('/admin')
-            req.session.loggedin = false;
-        }else{
-            res.render('login.ejs')
-        }
-    })
-}
-})
-
-app.get('/consulte', (req,res)=>{
-    const sql = 'SELECT * FROM users';
-    
-    connection.query(sql, (error, results)=>{
-        if(error)throw error;
-        if(results.length > 0){
-            res.json(results)
-        }else {
-            res.send('Not result')
-        }
-    })
-})
 
 app.get('/admin', (req, res)=>{
-    if(req.session.loggedin){
-        res.render('login',{
-            login:true
-        })
-    }else{
-        res.render('admin',{
-            login:false
-        })
-    }
+    res.render('admin')
 })
 
 
