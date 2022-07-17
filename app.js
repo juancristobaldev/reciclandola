@@ -33,20 +33,9 @@ app.use(express.static(__dirname + "/public"))
 
 
 //8 - Establecemos las rutas
-app.get('/login' , (req,res) => {
-    res.render("login")
-})
 app.get('/', (req, res) =>{
     res.render('main')
 })
-
-const { render } = require('ejs');
-
-
-app.get('/admin', (req, res)=>{
-    res.render('admin')
-})
-
 
 app.get('main', (req,res) => {
     res.render('form');

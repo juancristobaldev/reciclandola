@@ -1,62 +1,52 @@
-header{
-    background-image: url(/img/unnamed.jpg);
-    .header-nav{
-        position        : fixed;
-        font-weight     : bold;
-        width           : 50%;
-        display         : flex;
-        justify-content : space-around;
-        align-items     : center;
-        height          : 75px;
-        padding-left    : 50%;
-        transition      : 1s;
-        z-index         : 1001;
-        .tienda-button{
-            border  : solid 1px #ffffff;
-            padding : 10px 20px;
-            
-            
-        }
-        .tienda-button:hover{
-            background  : #2EBE3D;
-            border: solid 1px #2ebe3d;
-            
-        }
-        a{  
-            color           : white;
-            text-decoration : none;
-        }
-        .cool-link::after{
-            content     : '';
-            display     : block;
-            width       : 0%;
-            height      : 2px;
-            background  : white;
-            transition  : width 1s;
-        }
-        .cool-link:hover::after{
-            width       : 100%;
-            transition  : width 1s;
-        }
+header {
+  background-image: url(/img/unnamed.jpg);
+  .header-nav {
+    position: fixed;
+    font-weight: bold;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    padding-left: 50%;
+    transition: 1s;
+    z-index: 1001;
+    a {
+      color: white;
+      text-decoration: none;
     }
-    .header-lobby{
-        width   : 35%;
-        height  : 100vh;
-        .displayflex-center;
-        .text-lobby, span{
-            color       : white;
-            font-weight : 900;
-            h1{
-                margin-bottom   : 20px;
-            }
-            span{
-                color   : #2EBE3D;
-            }
-            a{
-                color       : white;
-                border      : 2px solid white;
-                padding     : 10px 15px;
-            }
-        } 
+    .cool-link::after {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: width 1s;
     }
+    .cool-link:hover::after {
+      width: 100%;
+      transition: width 1s;
+    }
+  }
+  .header-lobby {
+    width: 35%;
+    height: 100vh;
+    .displayflex-center;
+    .text-lobby,
+    span {
+      color: white;
+      font-weight: 900;
+      h1 {
+        margin-bottom: 20px;
+      }
+      span {
+        color: #2ebe3d;
+      }
+      a {
+        color: white;
+        border: 2px solid white;
+        padding: 10px 15px;
+      }
+    }
+  }
 }

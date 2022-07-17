@@ -5,6 +5,8 @@
 
 document.addEventListener('DOMContentLoaded',() => {
 
+    document.getElementById("conocenos").style.overflowX="hidden"
+
     let article = document.getElementsByClassName("article-vasos");
     let articleleft = document.getElementById("article-vasos")
     let articleright = document.getElementById("article-bong")
@@ -65,7 +67,6 @@ document.addEventListener('DOMContentLoaded',() => {
         function Animaciones(){
         let headerbackground = document.getElementById("nav");
         let linkmenu = document.querySelectorAll("#linkmenu");
-        let tiendalink = document.getElementById("tiendalink");
         let anim1 = document.getElementById("anim")
         let altura = anim1.offsetTop;
         var i;
@@ -76,15 +77,10 @@ document.addEventListener('DOMContentLoaded',() => {
             if (200 < PixelesRecorridos){
                 headerbackground.style.backgroundColor = "white";
                 linkmenu[i].style.color = "green";
-                tiendalink.style.border = "solid 1px green";
-                tiendalink.style.color = "green";
-                
             }
             else if (200 > PixelesRecorridos){
                 headerbackground.style.backgroundColor = "transparent";
                 linkmenu[i].style.color = "white";
-                tiendalink.style.border = "solid 1px white";
-                tiendalink.style.color = "white";
             }
         }
     

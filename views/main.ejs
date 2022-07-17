@@ -14,23 +14,21 @@
     <header>
         <div>
             <nav id="nav"  class="header-nav">
-                <a id="tiendalink" class="tienda-button"href="">Tienda</a>
-                <a id="linkmenu" class="cool-link" href="">Conocenos</a>
-                <a id="linkmenu" class="cool-link" href="">Galeria</a>
-                <a id="linkmenu" class="cool-link" href="">Contactanos</a>
+                <a id="linkmenu" class="cool-link" href="#conocenos">Conocenos</a>
+                <a id="linkmenu" class="cool-link" href="#galeria">Galeria</a>
+                <a id="linkmenu" class="cool-link" href="#contacto">Contactanos</a>
             </nav>
         </div>
         <div class="header-lobby">
             <div class="text-lobby">
                 <h1>Dando <span>vida</span> <br> a las <span>botellas</span></h1>
-                <a href="">Ver más</a>
             </div>
         </div>
     </header>
     <div class="visual-rest tittle">
         <h3>En 4 meses ya hemos reciclado <br> <span class="green-glass">600 botellas</span> <br><span class="green-emojis">&#128154;&#127870;</span></h3>
     </div>
-    <section class="conocenos">
+    <section id="conocenos" class="conocenos">
 
         <!-- POST 1 -->
         <div class="btns">
@@ -45,9 +43,8 @@
                     <h1>Vasos</h1>
                 </div>
                 <div class="box-text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem necessitatibus libero commodi assumenda aliquam delectus nostrum veritatis quis suscipit ducimus ea, aspernatur, ab, itaque repellendus vel! Doloribus ipsa veniam sed.</p>
+                    <p>Nuestros vasos son 100% hechos a mnao con mucho cariño y la mejor intencion, no tan solo para nuestros clientes... Si no para nuestro medio ambiente tambien. Nuestros bordes pulidos enamoran a nuestros clientes. ¿Que esperas para probarlos?</p>
                 </div>
-                <div class="box-button"><a href="">Ver más</a></div>
             </div>
         </div>
 
@@ -59,13 +56,12 @@
                 <div id="bong" class="box-conocenos-bong bong">
                 <div class="box-tittle-bong">
                     <div>
-                        <h1>Vasos</h1>
+                        <h1>Pipas</h1>
                     </div>
                     </div>
                 <div class="box-text-bong">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem necessitatibus libero commodi assumenda aliquam delectus nostrum veritatis quis suscipit ducimus ea, aspernatur, ab, itaque repellendus vel! Doloribus ipsa veniam sed.</p>
+                    <p>Nuestras pipas para tabaco recicladas, enamoran a nuestros clientes, no solo por su funcionalidad, si no por su diseño e innovacion.</p>
                 </div>
-                <div class="box-button-bong"><a href="">Ver más</a></div>
             </div>
             <!-- FIN POST 2 -->
 
@@ -76,7 +72,7 @@
     </section>
     <section id="galeria" class="galeria">
         <div class="tittle-galeria tittle">
-            <h3>Instagram</h3>
+            <h3>Galeria de fotos</h3>
         </div>
         <div class="layout-galeria">
             
@@ -87,7 +83,7 @@
             <div id="anim" class="layout-img5"></div>
         </div>  
     </section>
-    <div class="tittle-contacto tittle">
+    <div id="contacto" class="tittle-contacto tittle">
         <h3>Comunicate con nosotros <br><span> &#128238;&#9851;&#65039;</span> </h3>
     </div>
     <section class="contacto">
@@ -96,17 +92,17 @@
                 <h3>Nos encontramos en <br> Padre Las Casas</h3>
             </div>
             <div class="section-contacto">
-                <h3>Puedes escribirnos en <span>WhatsApp</span> <br> o enviarnos un correo ;) </h3>
+                <h3>Puedes escribirnos en <span><a href="https://wa.me/+56976028868">WhatsApp</a></span> <br> o enviarnos un correo ;) </h3>
             </div>
             <form action="/index.html" method="post"  action="class">
                 <div class="nombre fade">
-                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5 ; font-weight: 350;" type="text" name="name" id="nombre" placeholder="nombre" maxlength="20" class="space" >
+                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5 ; font-weight: 350;" type="text" name="name" id="nombre" placeholder="Nombre" maxlength="20" class="space" >
                 </div>
                 <div class="email fade">
-                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5  ; font-weight: 350;"type="email" name="email" id="email" placeholder="email" maxlength="40" required class="space">
+                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5  ; font-weight: 350;"type="email" name="email" id="email" placeholder="Email" maxlength="40" required class="space">
                 </div>
                 <div class="mensaje fade">
-                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5 ; font-weight: 350;" type="text" name="message" id="mensaje" placeholder="mensaje" maxlength="200" class="space" >
+                    <input style=" text-align: center; height: 80%; border: none; background-color: #F5F5F5 ; font-weight: 350;" type="text" name="message" id="mensaje" placeholder="Mensaje" maxlength="200" class="space" >
                 </div>
                 <div class="enviar fade">
                     <input type="submit" value="Me parece bien" style="cursor: pointer; height: 60%;  border: none; color: white;">
@@ -117,6 +113,33 @@
         <div class="contacto-mapa">
             <iframe class="iframe-mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24886.731617939182!2d-72.61091822726146!3d-38.76734032632156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d1318ae143b9%3A0x42bd6d0524724ef0!2sPadre%20las%20Casas%2C%20Araucan%C3%ADa!5e0!3m2!1ses!2scl!4v1616336343947!5m2!1ses!2scl" width="1000" height="1000" style="border:0;" allowfullscreen="" loading="lazy"></iframe>        </div>
     </section>
+    <footer class="footer">
+        <div class="tecnologies">
+            <div class="title">
+                <span>Tecnologias aplicadas:</span>
+            </div>
+            <div class="list">
+                <div>
+                    <p>HTML</p>
+                </div>
+                <div>
+                    <p>Responsive Design</p>
+                </div>
+                <div>
+                    <p>JS muy basico y LESS</p>
+                </div>
+            </div>
+        </div>
+        <div class="dedicatoria">
+            <p> 
+                Pagina web hecha por <span>juancristobaldeveloper@gmail.com</span> para: <span>juancristobaldeveloper</span> <br>
+                (sin fines de lucro, ni ser mostrada al publico)
+            </p>
+        </div>
+        <div class="end">
+            <p>Junio, 2020</p>
+        </div>
+    </footer>
     <script src="js/js.js"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
