@@ -69,7 +69,7 @@ app.post('main', (req,res) =>{
     };
     transporter.sendMail(mailOptions, (error, info) =>{
         if(error){
-            res.status(500).send(error.message)
+            res.sendFile(__dirname + '/public/main.ejs')
         } else {
             console.log('Enviado correctamento')
             res.sendFile(__dirname + '/public/main.ejs')
